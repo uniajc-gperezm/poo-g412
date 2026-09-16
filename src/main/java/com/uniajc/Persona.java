@@ -56,7 +56,7 @@ public class Persona {
         System.out.println("Edad: " + this.edad);
     }
 
-    public String caminar() {
+    private String caminar() {
         return this.nombre + " está caminando.";
     }
 
