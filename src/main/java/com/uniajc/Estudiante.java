@@ -70,7 +70,7 @@ public class Estudiante {
         System.out.println("Promedio Académico: " + this.promedioAcademico);
     }
 
-    private String matricularMaterias() {
+    public String matricularMaterias() {
         return "El estudiante " + this.nombre + " con código " + this.codigoEstudiantil + " ha matriculado sus materias.";
     }
 
