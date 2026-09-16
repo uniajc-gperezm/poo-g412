@@ -1,13 +1,17 @@
 package com.uniajc;
 
+import java.util.Date;
+import java.util.Calendar;
+
 public class Persona {
 
     // 1. Atributos de la clase Persona
     private String identificacion;
     private String nombre;
     private int edad;
+    private Date fechaNacimiento;
 
-    // 2. Constructores de la clase Persona 
+    // 2. Constructores de la clase Persona
 
     // Constructor vacio de la clase Persona
     public Persona() {}
@@ -21,6 +25,13 @@ public class Persona {
         this.identificacion = id;
         this.nombre = name;
         this.edad = edad;
+    }
+
+    public Persona(String id, String name, Date fechaNacimiento) {
+        this.identificacion = id;
+        this.nombre = name;
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = calcularEdad();
     }
 
 
@@ -50,10 +61,34 @@ public class Persona {
         this.edad = edad;
     }
 
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = calcularEdad();
+    }
+
+    public int calcularEdad() {
+        if (this.fechaNacimiento == null) return 0;
+        Calendar calNacimiento = Calendar.getInstance();
+        calNacimiento.setTime(this.fechaNacimiento);
+        Calendar calActual = Calendar.getInstance();
+        int edad = calActual.get(Calendar.YEAR) - calNacimiento.get(Calendar.YEAR);
+        if (calActual.get(Calendar.DAY_OF_YEAR) < calNacimiento.get(Calendar.DAY_OF_YEAR)) {
+            edad--;
+        }
+        return edad;
+    }
+
     public void mostrarInformacion() {
         System.out.println("Identificación: " + this.identificacion);
         System.out.println("Nombre: " + this.nombre);
         System.out.println("Edad: " + this.edad);
+        if (this.fechaNacimiento != null) {
+            System.out.println("Fecha de nacimiento: " + this.fechaNacimiento);
+        }
     }
 
     private String caminar() {

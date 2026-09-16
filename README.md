@@ -1,7 +1,6 @@
-# Diagrama de clases UML: `Persona`
+# Diagrama de clases UML: `Persona` y `Mascota`
 
-El siguiente diagrama representa la clase `Persona` definida en
-`src/main/java/com/uniajc/Persona.java`.
+El siguiente diagrama representa las clases `Persona` y `Mascota` definidas en el paquete `com.uniajc`.
 
 ### Versión Mermaid
 
@@ -11,18 +10,41 @@ classDiagram
         -String identificacion
         -String nombre
         -int edad
+        -Date fechaNacimiento
         +Persona()
         +Persona(String id)
         +Persona(String id, String name, int edad)
+        +Persona(String id, String name, Date fechaNacimiento)
         +String getIdentificacion()
         +void setIdentificacion(String identificacion)
         +String getNombre()
         +void setNombre(String nombre)
         +int getEdad()
         +void setEdad(int edad)
+        +Date getFechaNacimiento()
+        +void setFechaNacimiento(Date fechaNacimiento)
+        +int calcularEdad()
         +void mostrarInformacion()
         -String caminar()
         +String hablar()
+    }
+
+    class Mascota {
+        -String nombre
+        -String raza
+        -String especie
+        -int edad
+        +Mascota(String nombre, String raza, String especie, int edad)
+        +String getNombre()
+        +void setNombre(String nombre)
+        +String getRaza()
+        +void setRaza(String raza)
+        +String getEspecie()
+        +void setEspecie(String especie)
+        +int getEdad()
+        +void setEdad(int edad)
+        +String hacerSonido()
+        +String comer()
     }
 ```
 
@@ -35,33 +57,45 @@ class Persona {
     - String identificacion
     - String nombre
     - int edad
+    - Date fechaNacimiento
     + Persona()
     + Persona(String id)
     + Persona(String id, String name, int edad)
+    + Persona(String id, String name, Date fechaNacimiento)
     + String getIdentificacion()
     + void setIdentificacion(String identificacion)
     + String getNombre()
     + void setNombre(String nombre)
     + int getEdad()
     + void setEdad(int edad)
+    + Date getFechaNacimiento()
+    + void setFechaNacimiento(Date fechaNacimiento)
+    + int calcularEdad()
     + void mostrarInformacion()
     - String caminar()
     + String hablar()
 }
 
+class Mascota {
+    - String nombre
+    - String raza
+    - String especie
+    - int edad
+    + Mascota(String nombre, String raza, String especie, int edad)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + String getRaza()
+    + void setRaza(String raza)
+    + String getEspecie()
+    + void setEspecie(String especie)
+    + int getEdad()
+    + void setEdad(int edad)
+    + String hacerSonido()
+    + String comer()
+}
+
 @enduml
 ```
-
-Ambos diagramas representan la misma clase y deben mostrar el mismo resultado
-conceptual. La diferencia está en el lenguaje utilizado:
-
-| Aspecto | Mermaid | PlantUML |
-| --- | --- | --- |
-| Inicio del bloque | `classDiagram` | `@startuml` |
-| Fin del bloque | Fin del bloque Markdown | `@enduml` |
-| Declaración de clase | `class Persona { ... }` | `class Persona { ... }` |
-| Relaciones | `Padre <|-- Hija` | `Padre <|-- Hija` |
-| Uso común | Markdown y editores con Mermaid integrado | Herramientas y extensiones compatibles con PlantUML |
 
 ## Fundamentos para crear un diagrama de clases UML
 
@@ -181,6 +215,5 @@ Antes de finalizar, se debe comprobar que:
 4. Las relaciones tienen la dirección y multiplicidad correctas.
 5. El diagrama sea legible y no incluya detalles innecesarios.
 
-En este caso, el diagrama de `Persona` refleja encapsulamiento: sus atributos
-son privados y se accede a ellos mediante métodos públicos, mientras que
-`caminar` permanece disponible únicamente dentro de la clase.
+En este caso, los diagramas reflejan encapsulamiento: sus atributos
+son privados y se accede a ellos mediante métodos públicos.
