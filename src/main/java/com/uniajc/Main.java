@@ -25,5 +25,11 @@ public class Main {
         System.out.println("Imprimiendo información de la persona 3: ");
         persona3.mostrarInformacion();
 
+        Estudiante estudiante1 = new Estudiante("William", 21, "1109185394", "Ingeniería de Software", 4.5);
+
+        System.out.println("Imprimiendo información del estudiante: ");
+        estudiante1.mostrarInformacion();
+
+        System.out.println(estudiante1.estudiar());
     }
 }
