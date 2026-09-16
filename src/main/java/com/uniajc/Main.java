@@ -14,8 +14,7 @@ public class Main {
 
         System.out.println("Imprimiendo información de la persona 2: ");
         System.out.println("Identificación: " + persona2.getIdentificacion() + ", Nombre: " + persona2.getNombre() + ", Edad: " + persona2.getEdad());
-
-
+        
         Persona persona3 = new Persona();
         persona3.setIdentificacion("123456789");
         persona3.setNombre("Carlos Rodriguez");
@@ -24,26 +23,6 @@ public class Main {
         System.out.println("Imprimiendo información de la persona 3: ");
         persona3.mostrarInformacion();
 
-        Estudiante estudiante1 = new Estudiante("William", 21, "1109185394", "Ingeniería de Software", 4.5);
-
-        System.out.println("Imprimiendo información del estudiante: ");
-        estudiante1.mostrarInformacion();
-
-        System.out.println(estudiante1.estudiar());
-
-        Estudiante estudiante2 = new Estudiante("Maria", 20, "3364852415", "Ingeniería de Software", 3.5);
-
-        System.out.println("Imprimiendo información del estudiante: ");
-        estudiante2.mostrarInformacion();
-
-        System.out.println(estudiante2.estudiar());
-
-        Estudiante estudiante3 = new Estudiante("Pablo", 29, "1103183295", "Ingeniería de Software", 4.2);
-
-        System.out.println("Imprimiendo información del estudiante: ");
-        estudiante3.mostrarInformacion();
-
-        System.out.println(estudiante3.estudiar());
 
     }
 
