@@ -24,5 +24,6 @@ public class Main {
 
         System.out.println("Imprimiendo información de la persona 3: ");
         persona3.mostrarInformacion();
+
     }
 }
