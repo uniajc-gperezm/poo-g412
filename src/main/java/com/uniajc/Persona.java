@@ -1,11 +1,15 @@
 package com.uniajc;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Persona {
 
     // 1. Atributos de la clase Persona
     private String identificacion;
     private String nombre;
     private int edad;
+    private LocalDate fechaNacimiento;
 
     // 2. Constructores de la clase Persona 
 
@@ -50,11 +54,28 @@ public class Persona {
         this.edad = edad;
     }
 
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = calcularEdad(); 
+    }
+
+    public int calcularEdad() {
+        if (this.fechaNacimiento != null) {
+            return Period.between(this.fechaNacimiento, LocalDate.now()).getYears();
+        }
+        return 0;
+    }
+
     public void mostrarInformacion() {
         System.out.println("Identificación: " + this.identificacion);
         System.out.println("Nombre: " + this.nombre);
-        System.out.println("Edad: " + this.edad);
-    }
+        System.out.println("Fecha de Nacimiento: " + this.fechaNacimiento);
+        System.out.println("Edad: " + getEdad()); 
+     }
 
     private String caminar() {
         return this.nombre + " está caminando.";
