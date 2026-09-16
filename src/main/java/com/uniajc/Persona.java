@@ -6,6 +6,7 @@ public class Persona {
     private String identificacion;
     private String nombre;
     private int edad;
+    private String fechaNacimiento;
 
     // 2. Constructores de la clase Persona 
 
@@ -17,10 +18,11 @@ public class Persona {
     }
 
     // Constructor con parametros de la clase Persona
-    public Persona(String id, String name, int edad) {
+    public Persona(String id, String name, int edad, String fechaNacimiento) {
         this.identificacion = id;
         this.nombre = name;
         this.edad = edad;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
 
@@ -50,10 +52,32 @@ public class Persona {
         this.edad = edad;
     }
 
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }   
+    
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    //Calcular edad 
+    public int calcularEdad() {
+        if (this.fechaNacimiento != null && !this.fechaNacimiento.isEmpty()) {
+            String[] fecha = this.fechaNacimiento.split("-");
+            int anioNacimiento = Integer.parseInt(fecha[0]);
+            int anioActual = java.time.LocalDate.now().getYear();
+            return anioActual - anioNacimiento;
+        } else {
+            return 0; // Retorna 0 si la fecha de nacimiento no está definida
+        }
+       
+    }
+
     public void mostrarInformacion() {
         System.out.println("Identificación: " + this.identificacion);
         System.out.println("Nombre: " + this.nombre);
         System.out.println("Edad: " + this.edad);
+        System.out.println("Fecha de Nacimiento: " + this.fechaNacimiento);
     }
 
     private String caminar() {
