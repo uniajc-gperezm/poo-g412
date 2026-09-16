@@ -1,6 +1,8 @@
-## Diagrama de clase Estudiante
+# Diagrama de clase Estudiante 
 
-# Estilo Mermaid
+## William villa
+
+## Estilo Mermaid
 
 ```mermaid
 classDiagram
