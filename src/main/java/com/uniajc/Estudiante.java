@@ -43,14 +43,21 @@ public class Estudiante {
     }
 
     // Método para determinar si aprobó
-    public boolean aprobo() {
-        return promedio >= 3.0;
+    public void aprobo() {
+        if (this.promedio >= 3.0) {
+            System.out.println("Estado: " + this.promedio + " - Aprobó"); 
+        } else {
+            System.out.println("Estado: " + this.promedio + " - Promedio bajo, no alcanza a aprobar");
+        }
     }
+    
 
     // Método para mostrar información
-    public void mostrarInformacion() {
+    public void mostrarInformacionEstudiante() {
         System.out.println("Código: " + codigo);
         System.out.println("Programa: " + programa);
         System.out.println("Promedio: " + promedio);
+        aprobo();
+       
     }
 }

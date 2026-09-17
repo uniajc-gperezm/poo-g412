@@ -29,6 +29,10 @@ public class Main {
         Persona persona4 =new Persona("111024567","Eva",2007,11,14);
         persona4.mostrarInformacion();
 
-        
+        //agrgando datos estudiante 
+        Estudiante est1 =new Estudiante("102993","TIC",4.0);
+        System.out.println("info estudiante: ");
+        est1.mostrarInformacionEstudiante();
+
     }
 }
