@@ -24,5 +24,11 @@ public class Main {
 
         System.out.println("Imprimiendo información de la persona 3: ");
         persona3.mostrarInformacion();
+
+        System.out.println("Imprimiendo información de la persona 4: ");
+        Persona persona4 =new Persona("111024567","Eva",2007,11,14);
+        persona4.mostrarInformacion();
+
+        
     }
 }
