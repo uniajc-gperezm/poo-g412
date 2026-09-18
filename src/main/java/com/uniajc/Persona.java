@@ -1,39 +1,43 @@
 package com.uniajc;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Persona {
 
-    // 1. Atributos de la clase Persona
     private String identificacion;
     private String nombre;
     private int edad;
-    private Date FechaNacimiento;
+    private LocalDate fechaNacimiento;
     private String direccion;
-    private String telefono;
+    private long telefono;
     private String correoElectronico;
     private double estatura;
-    // 2. Constructores de la clase Persona 
 
-    // Constructor vacio de la clase Persona
-    public Persona() {}
-
-    public Persona(String id) {
-        this.identificacion = id;
+    public Persona() {
     }
 
-    // Constructor con parametros de la clase Persona
-    public Persona(String id, String name, int edad, Date fechaNacimiento, String direccion, String telefono, String correoElectronico, double estatura) {
-        this.identificacion = id;
-        this.nombre = name;
+    public Persona(String identificacion) {
+        this.identificacion = identificacion;
+    }
+
+    public Persona(String identificacion, String nombre, int edad) {
+        this.identificacion = identificacion;
+        this.nombre = nombre;
         this.edad = edad;
-        this.FechaNacimiento = fechaNacimiento;
+    }
+
+    public Persona(String identificacion, String nombre, int edad, LocalDate fechaNacimiento,
+                   String direccion, long telefono, String correoElectronico, double estatura) {
+        this.identificacion = identificacion;
+        this.nombre = nombre;
+        this.edad = edad;
+        this.fechaNacimiento = fechaNacimiento;
         this.direccion = direccion;
         this.telefono = telefono;
         this.correoElectronico = correoElectronico;
         this.estatura = estatura;
     }
-
-
-    // 3. Métodos de la clase Persona
 
     public String getIdentificacion() {
         return identificacion;
@@ -44,6 +48,10 @@ public class Persona {
     }
 
     public String getNombre() {
+        return nombre;
+    }
+
+    public String getNombreCompleto() {
         return nombre;
     }
 
@@ -59,12 +67,14 @@ public class Persona {
         this.edad = edad;
     }
 
-    public Date getFechaNacimiento() {
-        return FechaNacimiento;
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
     }
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.FechaNacimiento = fechaNacimiento;
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
+
     public String getDireccion() {
         return direccion;
     }
@@ -73,11 +83,11 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    public String getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
 
@@ -101,7 +111,7 @@ public class Persona {
         System.out.println("Identificación: " + this.identificacion);
         System.out.println("Nombre: " + this.nombre);
         System.out.println("Edad: " + this.edad);
-        System.out.println("Fecha de Nacimiento: " + this.FechaNacimiento);
+        System.out.println("Fecha de Nacimiento: " + this.fechaNacimiento);
         System.out.println("Dirección: " + this.direccion);
         System.out.println("Teléfono: " + this.telefono);
         System.out.println("Correo Electrónico: " + this.correoElectronico);
@@ -116,7 +126,7 @@ public class Persona {
         return this.nombre + " está hablando.";
     }
 
-    private String dormir(){
+    private String dormir() {
         return this.nombre + " está durmiendo.";
     }
 
@@ -125,42 +135,17 @@ public class Persona {
     }
 
     private String estudiar() {
-        return this.nombre + " está estudiando sabroso.";
+        return this.nombre + " está estudiando.";
     }
 
     public String trabajar() {
         return this.nombre + " está trabajando.";
     }
 
-
-    
-
+    public int calcularEdad() {
+        if (this.fechaNacimiento == null) {
+            return this.edad;
+        }
+        return Period.between(this.fechaNacimiento, LocalDate.now()).getYears();
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// esta es mi rama Muchachos si copiar AJJAJAJAJAJ
