@@ -1,4 +1,6 @@
 package com.uniajc;
+import java.util.Date;
+import java.util.Calendar;
 
 public class Persona {
 
@@ -6,6 +8,7 @@ public class Persona {
     private String identificacion;
     private String nombre;
     private int edad;
+    private date fechaNacimiento;
 
     // 2. Constructores de la clase Persona 
 
@@ -25,6 +28,13 @@ public class Persona {
 
 
     // 3. Métodos de la clase Persona
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
 
     public String getIdentificacion() {
         return identificacion;
@@ -64,4 +74,21 @@ public class Persona {
         return this.nombre + " está hablando.";
     }
 
+    public int calcularEdad() {
+      if (this.fechaNacimiento == null) {
+        return 0;
+    }
+
+    Calendar fechaNac = Calendar.getInstance();
+      fechaNac.setTime(this.fechaNacimiento);
+
+    Calendar hoy = Calendar.getInstance();
+
+    int edad = hoy.get(Calendar.YEAR) - fechaNac.get(Calendar.YEAR);
+
+      if (hoy.get(Calendar.DAY_OF_YEAR) < fechaNac.get(Calendar.DAY_OF_YEAR)) {
+        edad--;
+    }
+    return edad;
+    }
 }
