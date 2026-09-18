@@ -20,7 +20,7 @@ La clase `Persona` modela la información principal de un individuo, incorporand
   * Constructores (vacío, por ID, y completo con todos los atributos).
   * Getters y Setters para todos los atributos (incluyendo apellido).
   * `getNombreCompleto()`: Devuelve la unión del nombre y el apellido.
-  * `calcularEdad()`: Evalúa de forma segura mediante un condicional si la fecha de nacimiento existe y calcula el año actual restándole el año de nacimiento (`java.time.LocalDate.now().getYear()`). Retorna la edad calculada o un valor por defecto.
+  * `calcularEdad()`: Evalúa de forma segura mediante un condicional si la fecha de nacimiento existe y calcula el año actual restándole el año de nacimiento (`java.time.LocalDate.now().getYear()`).
   * `mostrarInformacion()`: Imprime por consola de manera ordenada todos los datos de la persona.
   * `hablar()` y `caminar()`: Métodos de comportamiento de la entidad.
 
@@ -80,7 +80,3 @@ classDiagram
     }
 
     Persona ..> Direccion : usa / asocia
-
-En este caso, el diagrama de `Persona` refleja encapsulamiento: sus atributos
-son privados y se accede a ellos mediante métodos públicos, mientras que
-`caminar` permanece disponible únicamente dentro de la clase.
