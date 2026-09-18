@@ -11,18 +11,44 @@ classDiagram
         -String identificacion
         -String nombre
         -int edad
+        -Date fechaNacimiento
         +Persona()
         +Persona(String id)
         +Persona(String id, String name, int edad)
+        +Persona(String id, String name, int edad, Date fechDate)
         +String getIdentificacion()
         +void setIdentificacion(String identificacion)
         +String getNombre()
         +void setNombre(String nombre)
         +int getEdad()
         +void setEdad(int edad)
+        +Date getFechaNacimiento()
+        +void setFechaNacimiento(Date fechaNacimiento)
+        +String calcularEdad()
         +void mostrarInformacion()
         -String caminar()
         +String hablar()
+    }
+```
+
+### Diagrama Mermaid de `Sede`
+
+```mermaid
+classDiagram
+    class Sede {
+        -String nombre
+        -String direccion
+        -String ciudad
+        +Sede()
+        +Sede(String name)
+        +Sede(String name, String direccion, String ciudad)
+        +String getNombre()
+        +void setNombre(String nombre)
+        +String getDireccion()
+        +void setDireccion(String direccion)
+        +String getCiudad()
+        +void setCiudad(String ciudad)
+        +void mostrarInformacion()
     }
 ```
 
