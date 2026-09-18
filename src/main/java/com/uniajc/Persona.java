@@ -1,11 +1,17 @@
 package com.uniajc;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+import java.util.Date;
+
 public class Persona {
 
     // 1. Atributos de la clase Persona
     private String identificacion;
     private String nombre;
     private int edad;
+    private Date fechaNacimiento;
 
     // 2. Constructores de la clase Persona 
 
@@ -23,6 +29,13 @@ public class Persona {
         this.edad = edad;
     }
 
+    // Constructor con fecha de nacimiento
+    public Persona(String id, String name, Date fechaNacimiento) {
+        this.identificacion = id;
+        this.nombre = name;
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = calcularEdad();
+    }
 
     // 3. Métodos de la clase Persona
 
@@ -48,6 +61,27 @@ public class Persona {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = calcularEdad();
+    }
+
+    // Método para calcular la edad a partir de la fecha de nacimiento
+   public int calcularEdad() {
+        if (fechaNacimiento == null) {
+            return 0;
+        }
+        LocalDate nacimiento = fechaNacimiento.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+        LocalDate hoy = LocalDate.now();
+        return Period.between(nacimiento, hoy).getYears();
     }
 
     public void mostrarInformacion() {
