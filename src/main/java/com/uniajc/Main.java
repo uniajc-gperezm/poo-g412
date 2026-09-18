@@ -1,5 +1,8 @@
 package com.uniajc;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
@@ -24,5 +27,25 @@ public class Main {
 
         System.out.println("Imprimiendo información de la persona 3: ");
         persona3.mostrarInformacion();
+
+        Persona persona4 = new Persona();
+        persona4.setIdentificacion("123456789");
+        persona4.setNombre("Carlos Rodriguez");
+        Calendar cal = Calendar.getInstance();
+        cal.set(2003, Calendar.APRIL, 23); 
+        Date fechaNacimiento = cal.getTime();
+        persona4.setFechaNacimiento(fechaNacimiento);
+
+        System.out.println("Imprimiendo información de la persona 4: " );
+        persona4.calcularEdad();
+        persona4.mostrarInformacion();
+
+        Sede sede1 = new Sede();
+        sede1.setNombre("Norte");
+        sede1.setDireccion("Avenida 6N No 28N-102");
+        sede1.setCiudad("Cali");
+        System.out.println("Imprimiendo sede");
+        sede1.mostrarInformacion();
+
     }
 }
