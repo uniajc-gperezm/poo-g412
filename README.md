@@ -184,3 +184,33 @@ Antes de finalizar, se debe comprobar que:
 En este caso, el diagrama de `Persona` refleja encapsulamiento: sus atributos
 son privados y se accede a ellos mediante métodos públicos, mientras que
 `caminar` permanece disponible únicamente dentro de la clase.
+
+## Stiven Franco
+
+## Diagrama de Clases
+
+```mermaid
+classDiagram
+    class Persona {
+        -String identificacion
+        -String nombre
+        -int edad
+        -Date fechaNacimiento
+        +getFechaNacimiento() Date
+        +setFechaNacimiento(Date) void
+        +calcularEdad() int
+    }
+
+    class Estudiante {
+        -String nombre
+        -String codigoEstudiantil
+        -String carrera
+        +getNombre() String
+        +setNombre(String) void
+        +getCodigoEstudiantil() String
+        +setCodigoEstudiantil(String) void
+        +getCarrera() String
+        +setCarrera(String) void
+        +estudiar() void
+    }
+```
