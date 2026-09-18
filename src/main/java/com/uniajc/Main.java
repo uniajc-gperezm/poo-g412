@@ -1,5 +1,7 @@
 package com.uniajc;
 
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
@@ -16,7 +18,6 @@ public class Main {
         System.out.println("Imprimiendo información de la persona 2: ");
         System.out.println("Identificación: " + persona2.getIdentificacion() + ", Nombre: " + persona2.getNombre() + ", Edad: " + persona2.getEdad());
 
-
         Persona persona3 = new Persona();
         persona3.setIdentificacion("123456789");
         persona3.setNombre("Carlos Rodriguez");
@@ -24,5 +25,20 @@ public class Main {
 
         System.out.println("Imprimiendo información de la persona 3: ");
         persona3.mostrarInformacion();
+
+        Persona persona4 = new Persona(
+                "13",
+                "Gian Carlos",
+                21,
+                LocalDate.of(2004, 9, 24),
+                "calle 72E N76",
+                3106586833L,
+                "camaleon@gmail.com",
+                1.95
+        );
+
+        System.out.println("Imprimiendo información de la persona 4: ");
+        persona4.mostrarInformacion();
+        System.out.println("Edad calculada persona4: " + persona4.calcularEdad());
     }
 }
