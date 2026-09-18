@@ -26,5 +26,13 @@ public class Main {
 
         System.out.println("Imprimiendo información de la persona 3: ");
         persona3.mostrarInformacion();
+
+        //Creo el objeto docente
+        System.out.println("\nInformación del docente: ");
+        Docente docente1 = new Docente("1434565439", "Ana Molina", LocalDate.of(1988, 4, 15), "Programacion", 4500000);
+        System.out.println("Nombre: " + docente1.getNombre());
+        System.out.println("Materia: " + docente1.getMateria());
+        System.out.println("Salario: $" + docente1.getSalario());
+        docente1.enseñar();
     }
 }
