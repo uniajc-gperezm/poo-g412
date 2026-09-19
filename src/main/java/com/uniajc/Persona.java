@@ -1,11 +1,15 @@
 package com.uniajc;
 
+import java.util.Date;
+import java.util.Calendar;
+
 public class Persona {
 
     // 1. Atributos de la clase Persona
     private String identificacion;
     private String nombre;
     private int edad;
+    private Date fechaNacimiento;
 
     // 2. Constructores de la clase Persona 
 
@@ -23,6 +27,12 @@ public class Persona {
         this.edad = edad;
     }
 
+    // Constructor con fecha de nacimiento
+    public Persona(String id, String name, Date fechaNacimiento) {
+        this.identificacion = id;
+        this.nombre = name;
+        this.fechaNacimiento = fechaNacimiento;
+    }
 
     // 3. Métodos de la clase Persona
 
@@ -50,10 +60,45 @@ public class Persona {
         this.edad = edad;
     }
 
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    // Método para calcular la edad según la fecha de nacimiento
+    public int calcularEdad() {
+
+        if (fechaNacimiento == null) {
+            return 0;
+        }
+
+        Calendar fechaActual = Calendar.getInstance();
+        Calendar nacimiento = Calendar.getInstance();
+
+        nacimiento.setTime(fechaNacimiento);
+
+        int edadCalculada = fechaActual.get(Calendar.YEAR)
+                - nacimiento.get(Calendar.YEAR);
+
+        // Verificar si ya cumplió años este año
+        if (fechaActual.get(Calendar.MONTH) < nacimiento.get(Calendar.MONTH)
+                || (fechaActual.get(Calendar.MONTH) == nacimiento.get(Calendar.MONTH)
+                && fechaActual.get(Calendar.DAY_OF_MONTH) < nacimiento.get(Calendar.DAY_OF_MONTH))) {
+
+            edadCalculada--;
+        }
+
+        return edadCalculada;
+    }
+
     public void mostrarInformacion() {
         System.out.println("Identificación: " + this.identificacion);
         System.out.println("Nombre: " + this.nombre);
-        System.out.println("Edad: " + this.edad);
+        System.out.println("Fecha de nacimiento: " + this.fechaNacimiento);
+        System.out.println("Edad: " + calcularEdad());
     }
 
     private String caminar() {
@@ -65,3 +110,4 @@ public class Persona {
     }
 
 }
+

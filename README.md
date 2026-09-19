@@ -25,6 +25,27 @@ classDiagram
         +String hablar()
     }
 ```
+```mermaid 
+    classDiagram
+        class Vehiculo {
+        -String placa
+        -String marca
+        -String modelo
+        +Vehiculo()
+        +Vehiculo(String placa)
+        +Vehiculo(String placa, String marca, String modelo)
+        +String getPlaca()
+        +void setPlaca(String placa)
+        +String getMarca()
+        +void setMarca(String marca)
+        +String getModelo()
+        +void setModelo(String modelo)
+        +void mostrarInformacion()
+        -String encender()
+        +String conducir()
+    }
+```
+
 
 ### Versión PlantUML
 

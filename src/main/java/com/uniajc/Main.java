@@ -1,28 +1,55 @@
 package com.uniajc;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
 
-        Persona persona1 = new Persona("123456789", "Juan Perez", 30);
-        persona1.setIdentificacion("080990900");
+    public static void main(String[] args) throws ParseException {
 
-        System.out.println("Imprimiendo información de la persona 1: ");
-        System.out.println(persona1);
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
 
-        Persona persona2 = new Persona("987654321");
-        persona2.setNombre("Maria Gomez");
+        Date fechaNacimiento1 = formatoFecha.parse("15/05/1995");
 
-        System.out.println("Imprimiendo información de la persona 2: ");
-        System.out.println("Identificación: " + persona2.getIdentificacion() + ", Nombre: " + persona2.getNombre() + ", Edad: " + persona2.getEdad());
+        Persona persona1 = new Persona(
+                "123456789",
+                "Juan Perez",
+                fechaNacimiento1
+        );
 
+        System.out.println("Imprimiendo información de la persona 1:");
+        persona1.mostrarInformacion();
 
-        Persona persona3 = new Persona();
-        persona3.setIdentificacion("123456789");
-        persona3.setNombre("Carlos Rodriguez");
-        persona3.setEdad(25);
+        System.out.println();
 
-        System.out.println("Imprimiendo información de la persona 3: ");
+        Date fechaNacimiento2 = formatoFecha.parse("20/08/2000");
+
+        Persona persona2 = new Persona(
+                "987654321",
+                "Maria Gomez",
+                fechaNacimiento2
+        );
+
+        System.out.println("Imprimiendo información de la persona 2:");
+        persona2.mostrarInformacion();
+
+        System.out.println();
+        Date fechaNacimiento3 = formatoFecha.parse("10/12/1998");
+
+        Persona persona3 = new Persona(
+                "456789123",
+                "Carlos Rodriguez",
+                fechaNacimiento3
+        );
+
+        System.out.println("Imprimiendo información de la persona 3:");
         persona3.mostrarInformacion();
+
+        System.out.println();
+
+        System.out.println("Edad de Juan: " + persona1.calcularEdad());
+        System.out.println("Edad de Maria: " + persona2.calcularEdad());
+        System.out.println("Edad de Carlos: " + persona3.calcularEdad());
     }
 }
