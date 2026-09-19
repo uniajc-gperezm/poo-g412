@@ -1,12 +1,14 @@
 package com.uniajc;
 
+import java.util.Date;
+
 public class Persona {
 
     // 1. Atributos de la clase Persona
     private String identificacion;
     private String nombre;
     private int edad;
-
+    private Date fechaNacimiento;
     // 2. Constructores de la clase Persona 
 
     // Constructor vacio de la clase Persona
@@ -64,4 +66,19 @@ public class Persona {
         return this.nombre + " está hablando.";
     }
 
+    // 4. Método para calcular la edad a partir de la fecha de nacimiento
+    public int calcularEdad() {
+        if (fechaNacimiento == null) {
+            return 0;
+        }
+        java.util.Calendar fechaNac = java.util.Calendar.getInstance();
+        fechaNac.setTime(fechaNacimiento);
+        java.util.Calendar actual = java.util.Calendar.getInstance();
+        
+        int edad = actual.get(java.util.Calendar.YEAR) - fechaNac.get(java.util.Calendar.YEAR);
+        if (actual.get(java.util.Calendar.DAY_OF_YEAR) < fechaNac.get(java.util.Calendar.DAY_OF_YEAR)) {
+            edad--;
+        }
+        return edad;
+    }
 }
